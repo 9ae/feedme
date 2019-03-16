@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecipeCard" customModule="FeedMe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTA-8q-fXb">
+                    <rect key="frame" x="20" y="69" width="335" height="548"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nn3-UN-2gN">
+                    <rect key="frame" x="47.5" y="28" width="280" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="ygP-M8-6yO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RTA-8q-fXb" secondAttribute="trailing" constant="20" id="61l-Mh-dhG"/>
+                <constraint firstItem="Nn3-UN-2gN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HG5-bw-fvt"/>
+                <constraint firstItem="RTA-8q-fXb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="aME-yT-KCg"/>
+                <constraint firstItem="Nn3-UN-2gN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="kBM-f7-pcR"/>
+                <constraint firstItem="RTA-8q-fXb" firstAttribute="top" secondItem="Nn3-UN-2gN" secondAttribute="bottom" constant="20" id="rNF-Oj-H0n"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="RTA-8q-fXb" secondAttribute="bottom" constant="50" id="xTD-4z-srN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="title" destination="Nn3-UN-2gN" id="nNR-CX-HLd"/>
+                <outlet property="webview" destination="RTA-8q-fXb" id="vL0-Io-mla"/>
+            </connections>
+        </view>
+    </objects>
+</document>

@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001CC547223C61C400E6CBDC /* SwipeFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001CC546223C61C400E6CBDC /* SwipeFeedVC.swift */; };
+		00370C49223D8688001C051D /* RecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00370C48223D8688001C051D /* RecipeCard.swift */; };
+		00370C4B223D89F6001C051D /* RecipeCardUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00370C4A223D89F6001C051D /* RecipeCardUI.xib */; };
 		00454EBE22360B7000C78F1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00454EBD22360B7000C78F1D /* AppDelegate.swift */; };
 		00454EC022360B7000C78F1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00454EBF22360B7000C78F1D /* ViewController.swift */; };
 		00454EC322360B7000C78F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC122360B7000C78F1D /* Main.storyboard */; };
 		00454EC522360B7100C78F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC422360B7100C78F1D /* Assets.xcassets */; };
 		00454EC822360B7100C78F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC622360B7100C78F1D /* LaunchScreen.storyboard */; };
+		004944492236130F0063A829 /* DarkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004944482236130F0063A829 /* DarkApi.swift */; };
+		0049444B223614CA0063A829 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0049444A223614CA0063A829 /* Models.swift */; };
+		F164DE5140A81A9C139CE1AF /* Pods_FeedMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E3773703163D2E0BCF534 /* Pods_FeedMe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		001CC546223C61C400E6CBDC /* SwipeFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeFeedVC.swift; sourceTree = "<group>"; };
+		00370C48223D8688001C051D /* RecipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCard.swift; sourceTree = "<group>"; };
+		00370C4A223D89F6001C051D /* RecipeCardUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCardUI.xib; sourceTree = "<group>"; };
 		00454EBA22360B7000C78F1D /* FeedMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00454EBD22360B7000C78F1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00454EBF22360B7000C78F1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +31,11 @@
 		00454EC422360B7100C78F1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00454EC722360B7100C78F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00454EC922360B7100C78F1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		004944482236130F0063A829 /* DarkApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkApi.swift; sourceTree = "<group>"; };
+		0049444A223614CA0063A829 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A68356E221B193593623C7C4 /* Pods-FeedMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMe.debug.xcconfig"; path = "Target Support Files/Pods-FeedMe/Pods-FeedMe.debug.xcconfig"; sourceTree = "<group>"; };
+		AF7B58D2495258891147EAC2 /* Pods-FeedMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMe.release.xcconfig"; path = "Target Support Files/Pods-FeedMe/Pods-FeedMe.release.xcconfig"; sourceTree = "<group>"; };
+		BE5E3773703163D2E0BCF534 /* Pods_FeedMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F164DE5140A81A9C139CE1AF /* Pods_FeedMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,8 @@
 			children = (
 				00454EBC22360B7000C78F1D /* FeedMe */,
 				00454EBB22360B7000C78F1D /* Products */,
+				2550C9565F3940861B018E02 /* Pods */,
+				7F83C74A2034BAF1F9D6E723 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +77,30 @@
 				00454EC422360B7100C78F1D /* Assets.xcassets */,
 				00454EC622360B7100C78F1D /* LaunchScreen.storyboard */,
 				00454EC922360B7100C78F1D /* Info.plist */,
+				004944482236130F0063A829 /* DarkApi.swift */,
+				0049444A223614CA0063A829 /* Models.swift */,
+				001CC546223C61C400E6CBDC /* SwipeFeedVC.swift */,
+				00370C48223D8688001C051D /* RecipeCard.swift */,
+				00370C4A223D89F6001C051D /* RecipeCardUI.xib */,
 			);
 			path = FeedMe;
+			sourceTree = "<group>";
+		};
+		2550C9565F3940861B018E02 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A68356E221B193593623C7C4 /* Pods-FeedMe.debug.xcconfig */,
+				AF7B58D2495258891147EAC2 /* Pods-FeedMe.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7F83C74A2034BAF1F9D6E723 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE5E3773703163D2E0BCF534 /* Pods_FeedMe.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00454ECC22360B7100C78F1D /* Build configuration list for PBXNativeTarget "FeedMe" */;
 			buildPhases = (
+				B58CCB822F4E3D092433DFFE /* [CP] Check Pods Manifest.lock */,
 				00454EB622360B7000C78F1D /* Sources */,
 				00454EB722360B7000C78F1D /* Frameworks */,
 				00454EB822360B7000C78F1D /* Resources */,
+				9D07DFB89686B1461AF7BF81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00370C4B223D89F6001C051D /* RecipeCardUI.xib in Resources */,
 				00454EC822360B7100C78F1D /* LaunchScreen.storyboard in Resources */,
 				00454EC522360B7100C78F1D /* Assets.xcassets in Resources */,
 				00454EC322360B7000C78F1D /* Main.storyboard in Resources */,
@@ -130,13 +172,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9D07DFB89686B1461AF7BF81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FeedMe/Pods-FeedMe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FeedMe/Pods-FeedMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B58CCB822F4E3D092433DFFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FeedMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		00454EB622360B7000C78F1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				00454EC022360B7000C78F1D /* ViewController.swift in Sources */,
+				004944492236130F0063A829 /* DarkApi.swift in Sources */,
+				001CC547223C61C400E6CBDC /* SwipeFeedVC.swift in Sources */,
 				00454EBE22360B7000C78F1D /* AppDelegate.swift in Sources */,
+				0049444B223614CA0063A829 /* Models.swift in Sources */,
+				00370C49223D8688001C051D /* RecipeCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,10 +375,13 @@
 		};
 		00454ECD22360B7100C78F1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A68356E221B193593623C7C4 /* Pods-FeedMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UP95RYJ9H;
 				INFOPLIST_FILE = FeedMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,10 +395,13 @@
 		};
 		00454ECE22360B7100C78F1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF7B58D2495258891147EAC2 /* Pods-FeedMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UP95RYJ9H;
 				INFOPLIST_FILE = FeedMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
