@@ -8,6 +8,7 @@
 
 import UIKit
 import Koloda
+import EventKit
 
 class SwipeFeedVC: UIViewController {
 
@@ -38,6 +39,60 @@ class SwipeFeedVC: UIViewController {
             }
             self.kolodaView.reloadData()
             print("LOG reload data")
+        }
+    }
+    
+    @IBAction func addToCalendar(_ sender: Any){
+        let i  = kolodaView.currentCardIndex
+        entryToCalendar(self.entryItems[i])
+        // It works but it doesn't open calendar it just silently adds it to the calendar
+    }
+    
+    func mark(ie: EntryItem, save: Bool){
+        DarkApi.mark(key: ie.key, save: save)
+    }
+    
+    func _insertEvent(store: EKEventStore, ei: EntryItem) {
+        if let calendar = store.defaultCalendarForNewEvents {
+
+            let startDate = Date()
+            let endDate = startDate.addingTimeInterval(2 * 60 * 60)
+            
+            let event = EKEvent(eventStore: store)
+            event.calendar = calendar
+            
+            event.title = ei.title
+            event.url = URL(string: ei.url)
+            event.startDate = startDate
+            event.endDate = endDate
+            
+            do {
+                try store.save(event, span: .thisEvent)
+            }
+            catch {
+                print("Error saving event in calendar")             }
+            }
+    }
+    
+    func entryToCalendar(_ ei: EntryItem){
+        let eventStore = EKEventStore()
+        
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .authorized:
+            self._insertEvent(store: eventStore, ei: ei)
+        case .denied:
+            print("Access denied")
+        case .notDetermined:
+            eventStore.requestAccess(to: .event, completion:
+                {[weak self] (granted: Bool, error: Error?) -> Void in
+                    if granted {
+                        self?._insertEvent(store: eventStore, ei: ei)
+                    } else {
+                        print("Access denied")
+                    }
+            })
+        default:
+            print("Case default")
         }
     }
 }
@@ -78,5 +133,12 @@ extension SwipeFeedVC: KolodaViewDataSource {
     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
         //return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)?[0] as? OverlayView
         return OverlayView()
+    }
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        let dirStr = direction == .left ? "left" : "right"
+        let ie = self.entryItems[index]
+        print("swiped \(dirStr) on \(ie.title)")
+        self.mark(ie: ie, save: direction == .right)
     }
 }

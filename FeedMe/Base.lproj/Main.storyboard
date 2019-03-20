@@ -99,6 +99,14 @@
                                     <action selector="refreshBtnPressed:" destination="qcZ-gT-ZGZ" eventType="touchUpInside" id="zkB-aB-FIn"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9F-B9-MfV">
+                                <rect key="frame" x="86" y="20" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add to Calendar"/>
+                                <connections>
+                                    <action selector="addToCalendar:" destination="qcZ-gT-ZGZ" eventType="touchUpInside" id="oDv-o2-ApK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
