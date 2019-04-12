@@ -9,8 +9,20 @@
 import UIKit
 import Koloda
 import EventKit
+import EventKitUI
 
-class SwipeFeedVC: UIViewController {
+class SwipeFeedVC: UIViewController, EKEventEditViewDelegate, UINavigationControllerDelegate {
+    
+    var eventStore = EKEventStore()
+    
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        dismiss(animated: false, completion: nil)
+    }
+    
+    func eventEditViewControllerDefaultCalendar(forNewEvents controller: EKEventEditViewController) -> EKCalendar {
+        return self.eventStore.defaultCalendarForNewEvents ?? EKCalendar(for: .event, eventStore: self.eventStore)
+    }
+    
 
     @IBOutlet weak var kolodaView: KolodaView!
     
@@ -52,13 +64,13 @@ class SwipeFeedVC: UIViewController {
         DarkApi.mark(key: ie.key, save: save)
     }
     
-    func _insertEvent(store: EKEventStore, ei: EntryItem) {
-        if let calendar = store.defaultCalendarForNewEvents {
+    func _insertEvent(ei: EntryItem) {
+        if let calendar = self.eventStore.defaultCalendarForNewEvents {
 
             let startDate = Date()
             let endDate = startDate.addingTimeInterval(2 * 60 * 60)
             
-            let event = EKEvent(eventStore: store)
+            let event = EKEvent(eventStore: self.eventStore)
             event.calendar = calendar
             
             event.title = ei.title
@@ -67,7 +79,15 @@ class SwipeFeedVC: UIViewController {
             event.endDate = endDate
             
             do {
-                try store.save(event, span: .thisEvent)
+                try self.eventStore.save(event, span: .thisEvent)
+                let editVC = EKEventEditViewController()
+                editVC.delegate = self
+                editVC.event = event
+                editVC.eventStore = self.eventStore
+                
+                let navCon = UINavigationController(rootViewController: editVC)
+                self.present(navCon, animated: false, completion: nil)
+                //self.navigationController?.pushViewController(editVC, animated: true)
             }
             catch {
                 print("Error saving event in calendar")             }
@@ -75,18 +95,17 @@ class SwipeFeedVC: UIViewController {
     }
     
     func entryToCalendar(_ ei: EntryItem){
-        let eventStore = EKEventStore()
         
         switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
-            self._insertEvent(store: eventStore, ei: ei)
+            self._insertEvent(ei: ei)
         case .denied:
             print("Access denied")
         case .notDetermined:
-            eventStore.requestAccess(to: .event, completion:
+            self.eventStore.requestAccess(to: .event, completion:
                 {[weak self] (granted: Bool, error: Error?) -> Void in
                     if granted {
-                        self?._insertEvent(store: eventStore, ei: ei)
+                        self?._insertEvent(ei: ei)
                     } else {
                         print("Access denied")
                     }
@@ -96,6 +115,7 @@ class SwipeFeedVC: UIViewController {
         }
     }
 }
+
 
 extension SwipeFeedVC: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {

@@ -27,6 +27,12 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>To add recipe links to your calendar, this app will need access to your calendar</string>
+	<key>NSContactsUsageDescription</key>
+	<string>For calendar access</string>
+	<key>NSLocationUsageDescription</key>
+	<string>For calendar</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>For calendar</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
