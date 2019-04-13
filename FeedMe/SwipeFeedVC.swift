@@ -16,7 +16,11 @@ class SwipeFeedVC: UIViewController, EKEventEditViewDelegate, UINavigationContro
     var eventStore = EKEventStore()
     
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
-        dismiss(animated: false, completion: nil)
+        print("did complete")
+        print(action)
+        controller.dismiss(animated: false){
+            print("dismissed")
+        }
     }
     
     func eventEditViewControllerDefaultCalendar(forNewEvents controller: EKEventEditViewController) -> EKCalendar {
@@ -77,17 +81,19 @@ class SwipeFeedVC: UIViewController, EKEventEditViewDelegate, UINavigationContro
             event.url = URL(string: ei.url)
             event.startDate = startDate
             event.endDate = endDate
+
             
             do {
-                try self.eventStore.save(event, span: .thisEvent)
+                //try self.eventStore.save(event, span: .thisEvent)
                 let editVC = EKEventEditViewController()
                 editVC.delegate = self
+                editVC.editViewDelegate = self
                 editVC.event = event
                 editVC.eventStore = self.eventStore
                 
-                let navCon = UINavigationController(rootViewController: editVC)
-                self.present(navCon, animated: false, completion: nil)
-                //self.navigationController?.pushViewController(editVC, animated: true)
+                self.present(editVC, animated: false){
+                    print("event to calendar")
+                }
             }
             catch {
                 print("Error saving event in calendar")             }
