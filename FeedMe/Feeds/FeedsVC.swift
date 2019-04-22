@@ -29,10 +29,16 @@ class FeedsVC: UITableViewController {
     }
     
     @IBAction func saveNewFeed(_ sender: Any){
-        let feed_url = field.text ?? "_"
-        print("Adding \(feed_url)")
+        if let url = field.text {
+            DarkApi.newFeed(url: url){ key in
+                self.feeds.append(BlogFeed(key: key, feed_url: url, is_fetched: false, blog_url: nil, title: nil, last_update: nil))
+                self.tableView.reloadData()
+                self.field.text = ""
+            }
+        }
         self.field.endEditing(true)
         self.field.resignFirstResponder()
+        
     }
 
     // MARK: - Table view data source
@@ -78,25 +84,21 @@ class FeedsVC: UITableViewController {
             return blog.is_fetched ? 80 : 50
     }
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+       return feeds[indexPath.row].is_fetched
     }
-    */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let blog = feeds[indexPath.row]
         if editingStyle == .delete {
-            // Delete the row from the data source
+            DarkApi.deleteFeed(key: blog.key)
+            feeds.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

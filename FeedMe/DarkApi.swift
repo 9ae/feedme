@@ -42,6 +42,24 @@ class DarkApi {
         }
     }
     
+    static func put(path: String, parameters: [String: Any], callback: @escaping (_ json : [String:Any]) -> Void){
+        let url = "\(HOST)\(path)"
+        var params: Parameters = parameters
+        params["user"] = "alice"
+        Alamofire.request(
+            url,
+            method: .put,
+            parameters: params,
+            encoding: JSONEncoding.default).responseJSON { response in
+                if let JSON = response.result.value as? [String:Any] {
+                    callback(JSON)
+                } else {
+                    print("POST \(url)")
+                    print("error parsing json")
+                }
+        }
+    }
+    
     static func mark(key: String, save: Bool){
         post(path: "/mark", parameters: ["key": key, "save": save]){ json in
             print(json)
@@ -72,7 +90,6 @@ class DarkApi {
             
             if let jli = json["feeds"] as? [[String:Any]] {
                 for bf in jli {
-//                    if let bf = i as? [String:Any]{
                     guard let key = bf["key"] as? String else { continue}
                     guard let feed_url = bf["feed_url"] as? String else { continue}
                     guard let is_fetched = bf["is_fetched"] as? Bool else { continue}
@@ -93,14 +110,26 @@ class DarkApi {
                                 feed_url: feed_url, is_fetched: true,
                                 blog_url: blog_url, title: title, last_update: last_update))
                         }
-//                    } else {
-//                        print("fail to parse dict")
-//                        continue
-//                    }
                 }
             }
             
             callback(blogs)
         }
     }
+    
+    static func newFeed(url: String, _ callback : @escaping (_ key: String) -> Void){
+        post(path: "/feeds", parameters: ["url": url]){ json in
+            if let key = json["key"] as? String {
+                callback(key)
+            }
+        }
+    }
+    
+    static func deleteFeed(key: String){
+        let params = ["key":key, "action": "delete"]
+        put(path: "/feeds", parameters: params){ json in
+            print(json)
+        }
+    }
+    
 }
