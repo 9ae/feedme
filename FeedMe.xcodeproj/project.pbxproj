@@ -11,7 +11,6 @@
 		00370C49223D8688001C051D /* RecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00370C48223D8688001C051D /* RecipeCard.swift */; };
 		00370C4B223D89F6001C051D /* RecipeCardUI.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00370C4A223D89F6001C051D /* RecipeCardUI.xib */; };
 		00454EBE22360B7000C78F1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00454EBD22360B7000C78F1D /* AppDelegate.swift */; };
-		00454EC022360B7000C78F1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00454EBF22360B7000C78F1D /* ViewController.swift */; };
 		00454EC322360B7000C78F1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC122360B7000C78F1D /* Main.storyboard */; };
 		00454EC522360B7100C78F1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC422360B7100C78F1D /* Assets.xcassets */; };
 		00454EC822360B7100C78F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC622360B7100C78F1D /* LaunchScreen.storyboard */; };
@@ -29,7 +28,6 @@
 		00370C4A223D89F6001C051D /* RecipeCardUI.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCardUI.xib; sourceTree = "<group>"; };
 		00454EBA22360B7000C78F1D /* FeedMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00454EBD22360B7000C78F1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00454EBF22360B7000C78F1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		00454EC222360B7000C78F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00454EC422360B7100C78F1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00454EC722360B7100C78F1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,18 +75,15 @@
 		00454EBC22360B7000C78F1D /* FeedMe */ = {
 			isa = PBXGroup;
 			children = (
+				00777A57226D97D800C53689 /* Swipe */,
 				00719E682263A9FA0003E903 /* Feeds */,
 				00454EBD22360B7000C78F1D /* AppDelegate.swift */,
-				00454EBF22360B7000C78F1D /* ViewController.swift */,
+				004944482236130F0063A829 /* DarkApi.swift */,
 				00454EC122360B7000C78F1D /* Main.storyboard */,
 				00454EC422360B7100C78F1D /* Assets.xcassets */,
 				00454EC622360B7100C78F1D /* LaunchScreen.storyboard */,
 				00454EC922360B7100C78F1D /* Info.plist */,
-				004944482236130F0063A829 /* DarkApi.swift */,
 				0049444A223614CA0063A829 /* Models.swift */,
-				001CC546223C61C400E6CBDC /* SwipeFeedVC.swift */,
-				00370C48223D8688001C051D /* RecipeCard.swift */,
-				00370C4A223D89F6001C051D /* RecipeCardUI.xib */,
 			);
 			path = FeedMe;
 			sourceTree = "<group>";
@@ -101,6 +96,16 @@
 				00719E6D2263AADF0003E903 /* FeedLiCell.swift */,
 			);
 			path = Feeds;
+			sourceTree = "<group>";
+		};
+		00777A57226D97D800C53689 /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				001CC546223C61C400E6CBDC /* SwipeFeedVC.swift */,
+				00370C48223D8688001C051D /* RecipeCard.swift */,
+				00370C4A223D89F6001C051D /* RecipeCardUI.xib */,
+			);
+			path = Swipe;
 			sourceTree = "<group>";
 		};
 		2550C9565F3940861B018E02 /* Pods */ = {
@@ -245,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00454EC022360B7000C78F1D /* ViewController.swift in Sources */,
 				004944492236130F0063A829 /* DarkApi.swift in Sources */,
 				00719E6C2263AA930003E903 /* NewCell.swift in Sources */,
 				001CC547223C61C400E6CBDC /* SwipeFeedVC.swift in Sources */,

@@ -13,6 +13,8 @@ import EventKitUI
 
 class SwipeFeedVC: UIViewController, EKEventEditViewDelegate, UINavigationControllerDelegate {
     
+    static let ADD_RECIPE_TO_CALENDAR = NSNotification.Name(rawValue: "ADD_RECIPE_TO_CALENDAR")
+    
     var eventStore = EKEventStore()
     
     func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
@@ -38,17 +40,15 @@ class SwipeFeedVC: UIViewController, EKEventEditViewDelegate, UINavigationContro
         kolodaView.dataSource = self
         kolodaView.delegate = self
         
-        
-    }
-    
-    @IBAction func refreshBtnPressed(_ sender: Any){
         DarkApi.newCards { (list) in
             self.entryItems = list
             self.kolodaView.reloadData()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.addToCalendar), name: SwipeFeedVC.ADD_RECIPE_TO_CALENDAR , object: nil)
     }
     
-    @IBAction func addToCalendar(_ sender: Any){
+    @objc func addToCalendar(){
         let i  = kolodaView.currentCardIndex
         entryToCalendar(self.entryItems[i])
         // It works but it doesn't open calendar it just silently adds it to the calendar
@@ -135,9 +135,7 @@ extension SwipeFeedVC: KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         if let cardView = Bundle.main.loadNibNamed("RecipeCardUI", owner: self, options: nil)?[0] as? RecipeCard {
-            let ei = self.entryItems[index]
-            cardView.title.text = ei.title
-            cardView.webview.loadHTMLString(ei.preview, baseURL: nil)
+            cardView.set(self.entryItems[index])
             return cardView
         } else {
             let errorLabel = UILabel()
