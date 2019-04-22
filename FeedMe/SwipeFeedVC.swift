@@ -42,19 +42,9 @@ class SwipeFeedVC: UIViewController, EKEventEditViewDelegate, UINavigationContro
     }
     
     @IBAction func refreshBtnPressed(_ sender: Any){
-        print("LOG fetching new data")
-        DarkApi.get(path: "/"){ json in
-            print("LOG got results")
-            guard let newStuff = json["results"] as? [[String:Any]] else {
-                return
-            }
-            for ei in newStuff {
-                if let e = EntryItem(ei) {
-                    self.entryItems.append(e)
-                }
-            }
+        DarkApi.newCards { (list) in
+            self.entryItems = list
             self.kolodaView.reloadData()
-            print("LOG reload data")
         }
     }
     

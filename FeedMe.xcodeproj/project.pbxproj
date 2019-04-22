@@ -17,6 +17,9 @@
 		00454EC822360B7100C78F1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00454EC622360B7100C78F1D /* LaunchScreen.storyboard */; };
 		004944492236130F0063A829 /* DarkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004944482236130F0063A829 /* DarkApi.swift */; };
 		0049444B223614CA0063A829 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0049444A223614CA0063A829 /* Models.swift */; };
+		00719E6C2263AA930003E903 /* NewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00719E6B2263AA930003E903 /* NewCell.swift */; };
+		00719E6E2263AADF0003E903 /* FeedLiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00719E6D2263AADF0003E903 /* FeedLiCell.swift */; };
+		00719E702263AB080003E903 /* FeedsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00719E6F2263AB080003E903 /* FeedsVC.swift */; };
 		F164DE5140A81A9C139CE1AF /* Pods_FeedMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5E3773703163D2E0BCF534 /* Pods_FeedMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		00454EC922360B7100C78F1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		004944482236130F0063A829 /* DarkApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkApi.swift; sourceTree = "<group>"; };
 		0049444A223614CA0063A829 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		00719E6B2263AA930003E903 /* NewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCell.swift; sourceTree = "<group>"; };
+		00719E6D2263AADF0003E903 /* FeedLiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLiCell.swift; sourceTree = "<group>"; };
+		00719E6F2263AB080003E903 /* FeedsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsVC.swift; sourceTree = "<group>"; };
 		A68356E221B193593623C7C4 /* Pods-FeedMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMe.debug.xcconfig"; path = "Target Support Files/Pods-FeedMe/Pods-FeedMe.debug.xcconfig"; sourceTree = "<group>"; };
 		AF7B58D2495258891147EAC2 /* Pods-FeedMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMe.release.xcconfig"; path = "Target Support Files/Pods-FeedMe/Pods-FeedMe.release.xcconfig"; sourceTree = "<group>"; };
 		BE5E3773703163D2E0BCF534 /* Pods_FeedMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +77,7 @@
 		00454EBC22360B7000C78F1D /* FeedMe */ = {
 			isa = PBXGroup;
 			children = (
+				00719E682263A9FA0003E903 /* Feeds */,
 				00454EBD22360B7000C78F1D /* AppDelegate.swift */,
 				00454EBF22360B7000C78F1D /* ViewController.swift */,
 				00454EC122360B7000C78F1D /* Main.storyboard */,
@@ -84,6 +91,16 @@
 				00370C4A223D89F6001C051D /* RecipeCardUI.xib */,
 			);
 			path = FeedMe;
+			sourceTree = "<group>";
+		};
+		00719E682263A9FA0003E903 /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				00719E6F2263AB080003E903 /* FeedsVC.swift */,
+				00719E6B2263AA930003E903 /* NewCell.swift */,
+				00719E6D2263AADF0003E903 /* FeedLiCell.swift */,
+			);
+			path = Feeds;
 			sourceTree = "<group>";
 		};
 		2550C9565F3940861B018E02 /* Pods */ = {
@@ -230,8 +247,11 @@
 			files = (
 				00454EC022360B7000C78F1D /* ViewController.swift in Sources */,
 				004944492236130F0063A829 /* DarkApi.swift in Sources */,
+				00719E6C2263AA930003E903 /* NewCell.swift in Sources */,
 				001CC547223C61C400E6CBDC /* SwipeFeedVC.swift in Sources */,
 				00454EBE22360B7000C78F1D /* AppDelegate.swift in Sources */,
+				00719E6E2263AADF0003E903 /* FeedLiCell.swift in Sources */,
+				00719E702263AB080003E903 /* FeedsVC.swift in Sources */,
 				0049444B223614CA0063A829 /* Models.swift in Sources */,
 				00370C49223D8688001C051D /* RecipeCard.swift in Sources */,
 			);

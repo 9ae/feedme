@@ -38,3 +38,13 @@ struct EntryItem {
     }
     
 }
+
+struct BlogFeed {
+    var key : String
+    var feed_url : String
+    var is_fetched : Bool = false
+    
+    var blog_url : String?
+    var title : String? 
+    var last_update : Date?
+}
